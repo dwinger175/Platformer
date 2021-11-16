@@ -11,7 +11,7 @@ public class Duke extends Actor
     private int speed = 7;
     private int vSpeed = 0;
     private double accel = 1;
-    private int jumpStrength = 16;
+    private int jumpStrength = 14;
     private int jtime = 0;
     private boolean jumping;
     private int direction;
@@ -20,20 +20,20 @@ public class Duke extends Actor
     private GreenfootImage player1l = new GreenfootImage("catProtag.png");
     private GreenfootImage player1JumpR = new GreenfootImage("catdoJumpR.png");
     private GreenfootImage player1JumpL = new GreenfootImage("catdoJumpL.png");
-
-    
     /**
      * Act - do whatever the Duke wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
+       
         checkKeys();
         fall();
         checkFall();
         platformAbove();
+        checkFish();
     }
-
+  
     public void checkKeys()
     {
         if (Greenfoot.isKeyDown("right"))
@@ -52,7 +52,7 @@ public class Duke extends Actor
 
         if (Greenfoot.isKeyDown("right") && jumping == true)
         {
-  
+
             setImage(player1JumpR);
             direction = 1;
         } 
@@ -64,20 +64,24 @@ public class Duke extends Actor
             direction = 2;
         } 
 
-        
         if (Greenfoot.isKeyDown("space") && jumping == false)
         {
             jump();
 
         } 
     }
+
     public void moveRight()
     {
+        if(collisionAt(speed,-1)) return;
+
         setLocation (getX() + speed, getY());
     }
 
     public void moveLeft()
     {
+        if(collisionAt(-speed,-1)) return;
+
         setLocation (getX() - speed, getY());
     }
 
@@ -85,7 +89,7 @@ public class Duke extends Actor
     {
         setLocation (getX(), getY() + vSpeed);
         jumping = true;
-     
+
         if (vSpeed <=9)
         {
             vSpeed = vSpeed += accel;
@@ -98,7 +102,6 @@ public class Duke extends Actor
         int spriteHeight = getImage().getHeight();
         int yDistance = (int)(spriteHeight/2) + 5;
         Actor ground = getOneObjectAtOffset(0, getImage().getHeight() / 2 , Platform.class);
-
         if (ground == null)
         {
             jumping = true;
@@ -110,7 +113,6 @@ public class Duke extends Actor
             return true;
         }
 
-        
 
     }
 
@@ -131,10 +133,9 @@ public class Duke extends Actor
             setImage(player1l);
 
         }
-        
+
     }
 
-    
     
     public void checkFall()
     {
@@ -205,9 +206,23 @@ public class Duke extends Actor
         setLocation(getX(), newY);
     }
 
+    public boolean collisionAt (int x ,int y)
+    {
+        return getOneObjectAtOffset(x,y, Platform.class) != null;
 
-
-
-
-
+    }
+    
+    public void checkFish()
+    {
+        if (isTouching(endFish.class))
+        {
+            Greenfoot.stop();
+            
+            
+        }
+        
+        
+    }
+    
+    
 }
