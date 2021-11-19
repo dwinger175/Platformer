@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Duke extends Actor
 {
-    private int speed = 7;
+    private int speed = 6;
     private int vSpeed = 0;
     private double accel = 1;
-    private int jumpStrength = 14;
+    private int jumpStrength = 15;
     private int jtime = 0;
     private boolean jumping;
     private int direction;
@@ -87,6 +87,8 @@ public class Duke extends Actor
 
     public void fall()
     {
+        
+        detectPlatform();
         setLocation (getX(), getY() + vSpeed);
         jumping = true;
 
@@ -94,14 +96,31 @@ public class Duke extends Actor
         {
             vSpeed = vSpeed += accel;
         }
-
     }
 
     public boolean onGround()
     {
-        int spriteHeight = getImage().getHeight();
-        int yDistance = (int)(spriteHeight/2) + 5;
-        Actor ground = getOneObjectAtOffset(0, getImage().getHeight() / 2 , Platform.class);
+        double spriteHeight = getImage().getHeight();
+        double spriteWidth = getImage().getHeight();
+        double yDistance = (double)(spriteHeight/2) + 5;
+        
+       Actor  ground = getOneObjectAtOffset(getImage().getWidth() + 1 / 5, getImage().getHeight() / 2 , Platform.class);
+           
+        
+       
+        if (direction == 1)
+        {
+            ground = getOneObjectAtOffset(-20, getImage().getHeight() / 2 , Platform.class);
+   
+           
+        }
+        
+        if (direction == 2)
+        {
+            ground = getOneObjectAtOffset(getImage().getWidth() - 9, getImage().getHeight() / 2 , Platform.class);
+        }
+        
+         
         if (ground == null)
         {
             jumping = true;
@@ -116,6 +135,21 @@ public class Duke extends Actor
 
     }
 
+    public void detectPlatform()
+    {
+        for (int i = 0; i < vSpeed; i++ )
+        {
+            Actor under = getOneObjectAtOffset(0, getImage().getHeight() / 2 + i , Platform.class);
+            if(under != null)
+            {
+                vSpeed = i;
+                
+            }
+        }
+        
+    }
+    
+    
     public void moveToGround (Actor ground)
     {
         int groundHeight = ground.getImage().getHeight();

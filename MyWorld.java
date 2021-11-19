@@ -27,7 +27,7 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-
+         music.playLoop();
         Platform platform = new Platform();
         addObject(platform,84,575);
         Platform platform2 = new Platform();
@@ -122,7 +122,7 @@ public class MyWorld extends World
  }
    public void started()
 {
-        music.playLoop();
+       
    }
     
 }
