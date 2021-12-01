@@ -47,7 +47,6 @@ public class Duke extends Actor
         fall();
         checkFall();
         platformAbove();
-        checkFish();
         animationCounter++;
     }
 
@@ -327,19 +326,11 @@ public class Duke extends Actor
 
     }
 
-    public void checkFish()
-    {
-        if (isTouching(endFish.class))
-        {
-            Greenfoot.stop();
-
-        }
-        
-    }
+  
 
     public void checkforSpikes() {
         if (isTouching(Spike.class)){
-            Greenfoot.stop();
+            Greenfoot.setWorld(new deathscreen());
         }
 
     }

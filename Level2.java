@@ -16,6 +16,45 @@ public class Level2 extends World
     public Level2()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-         super(800, 600, 1);
+        super(800, 600, 1);
+        prepare();
+    }
+    
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+        Platform platform = new Platform();
+        addObject(platform,15,577);
+
+        Platform platform2 = new Platform();
+        addObject(platform2,15,555);
+        Spike spike = new Spike();
+        addObject(spike,379,583);
+        Spike spike2 = new Spike();
+        addObject(spike2,506,582);
+        Spike spike3 = new Spike();
+        addObject(spike3,632,582);
+        Spike spike4 = new Spike();
+        addObject(spike4,760,582);
+        offground offground = new offground();
+        addObject(offground,458,482);
+        offground offground2 = new offground();
+        addObject(offground2,684,430);
+        offground offground3 = new offground();
+        addObject(offground3,459,357);
+        offground offground4 = new offground();
+        addObject(offground4,660,266);
+        Duke duke = new Duke();
+        addObject(duke,70,509);
+        offground offground5 = new offground();
+        addObject(offground5,432,212);
+        Floater floater = new Floater();
+        addObject(floater,708,125);
+        floater.setLocation(648,112);
+        endFish endFish = new endFish();
+        addObject(endFish,645,63);
     }
 }

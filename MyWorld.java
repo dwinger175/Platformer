@@ -116,13 +116,13 @@ public class MyWorld extends World
     }
     
     
-   public void stopped()
+   public void end(endFish endFish)
+   
    {
-        music.stop();
- }
-   public void started()
-{
-       
+    if(endFish.numWorld == 2)
+    {
+       music.stop();
    }
     
+}
 }
