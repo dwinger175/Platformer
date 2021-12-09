@@ -47,7 +47,7 @@ public class startScreen extends World
         music.playLoop(); 
         if (Greenfoot.isKeyDown("enter") == true)
         {
-           if (++counter == 5) music.stop();
+           music.stop();
         }
     }
 }

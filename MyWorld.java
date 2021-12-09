@@ -27,7 +27,7 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-         music.playLoop();
+        music.playLoop();
         Platform platform = new Platform();
         addObject(platform,84,575);
         Platform platform2 = new Platform();
@@ -107,12 +107,14 @@ public class MyWorld extends World
         addObject(structure30,490,212);
         offground offground6 = new offground();
         addObject(offground6,431,171);
-        Duke duke = new Duke();
+        Duke duke = new Duke(34,526);
         addObject(duke,34,526);
         Floater floater = new Floater();
         addObject(floater,219,178);
-        endFish endFish = new endFish();
+        endFish endFish = new endFish(1);
         addObject(endFish,213,130);
+        healthBar healthBar = new healthBar();
+        addObject(healthBar,87,45);
     }
     
     

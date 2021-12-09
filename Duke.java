@@ -35,7 +35,17 @@ public class Duke extends Actor
 
     private int frame = 1;
     private int animationCounter = 0;
-
+    private int numLives = 3;
+    private int xPos =110 ;
+    private int yPos = 110;
+    
+    public Duke(int posX, int posY)
+    {
+         posX= xPos;
+        posY = yPos;
+        
+    }
+    
     /**
      * Act - do whatever the Duke wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -330,8 +340,15 @@ public class Duke extends Actor
 
     public void checkforSpikes() {
         if (isTouching(Spike.class)){
-            Greenfoot.setWorld(new deathscreen());
-        }
-
+            
+              Level2 Level2= (Level2) getWorld();
+            Level2.damage();
+            
+            numLives--;
+            setLocation(xPos, yPos);
+            
+            
+            
     }
+}
 }

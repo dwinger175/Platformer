@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level2 extends World
 {
-
+    private healthBar healthbar;
+    private Duke duke;
     /**
      * Constructor for objects of class Level2.
      * 
@@ -19,7 +20,8 @@ public class Level2 extends World
         super(800, 600, 1);
         prepare();
     }
-    
+    int numLives = 3;
+
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -47,14 +49,26 @@ public class Level2 extends World
         addObject(offground3,459,357);
         offground offground4 = new offground();
         addObject(offground4,660,266);
-        Duke duke = new Duke();
+        Duke duke = new Duke(70,509);
         addObject(duke,70,509);
         offground offground5 = new offground();
         addObject(offground5,432,212);
         Floater floater = new Floater();
         addObject(floater,708,125);
         floater.setLocation(648,112);
-        endFish endFish = new endFish();
+        endFish endFish = new endFish(1);
         addObject(endFish,645,63);
+        healthbar = new healthBar();
+        addObject(healthbar,70,31);
+
     }
-}
+
+    public void damage()
+    {
+        numLives--;
+        healthbar.checkDamage();
+    }    
+
+  
+    }
+
