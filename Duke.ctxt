@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Duke
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Duke\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=posX\ posY
-comment1.target=Duke(int,\ int)
+comment1.params=xVar\ yVar\ worldNum
+comment1.target=Duke(int,\ int,\ int)
 comment10.params=
 comment10.target=void\ detectPlatform()
 comment11.params=ground

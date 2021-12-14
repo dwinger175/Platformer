@@ -14,6 +14,13 @@ public class healthBar extends Actor
     private GreenfootImage heart1 = new GreenfootImage("1hearts.png"); 
     int totalHealth = 3;
     
+    int numWorld;
+    public healthBar(int worldNum){
+        numWorld = worldNum;
+        
+    }
+    
+    
     /**
      * Act - do whatever the healthBar wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -52,9 +59,40 @@ public class healthBar extends Actor
         if (totalHealth == 0)
         {
             Greenfoot.setWorld(new deathscreen());
+            stopMusic();
+            
             
         }
         
     }
+    
+    public void stopMusic()
+    {
+        if (numWorld == 1)
+        {
+            MyWorld MyWorld= (MyWorld) getWorld();
+             MyWorld.stop();
+            
+            
+        }
+        else if (numWorld == 2)
+        {
+            Level2 Level2 = (Level2) getWorld();
+             Level2.stop();            
+            
+        }
+        else if (numWorld == 3)
+        {
+            Level3 Level3 = (Level3) getWorld();
+             Level3.stop();            
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
     
 }

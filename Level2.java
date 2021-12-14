@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Level2 extends World
 {
     private healthBar healthbar;
-    private Duke duke;
+    private Duke Duke;
     /**
      * Constructor for objects of class Level2.
      * 
@@ -21,13 +21,27 @@ public class Level2 extends World
         prepare();
     }
     int numLives = 3;
+    private GreenfootSound music = new GreenfootSound("Battle_of_Chiptune.mp3");        
+   
+    public void act()
+    {
+        playMusic();
 
+    }
+     public void playMusic()
+    {
+        music.playLoop(); 
+      
+    }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
+        music.playLoop();
+
         Platform platform = new Platform();
         addObject(platform,15,577);
 
@@ -49,26 +63,31 @@ public class Level2 extends World
         addObject(offground3,459,357);
         offground offground4 = new offground();
         addObject(offground4,660,266);
-        Duke duke = new Duke(70,509);
+        Duke duke = new Duke(70,509,2);
         addObject(duke,70,509);
         offground offground5 = new offground();
         addObject(offground5,432,212);
         Floater floater = new Floater();
         addObject(floater,708,125);
         floater.setLocation(648,112);
-        endFish endFish = new endFish(1);
-        addObject(endFish,645,63);
-        healthbar = new healthBar();
+
+        healthbar = new healthBar(2);
         addObject(healthbar,70,31);
 
+        EndFish endFish = new EndFish(2);
+        addObject(endFish,651,66);
     }
 
     public void damage()
     {
         numLives--;
         healthbar.checkDamage();
-    }    
-
+            }    
+    public void stop()
+    {
+        music.stop();
+            
+    }
   
     }
 

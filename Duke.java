@@ -36,15 +36,16 @@ public class Duke extends Actor
     private int frame = 1;
     private int animationCounter = 0;
     private int numLives = 3;
-    private int xPos =110 ;
-    private int yPos = 110;
-    
-    public Duke(int posX, int posY)
+    int xPos;
+    int yPos;    
+    int numWorld;
+    public Duke(int xVar, int yVar, int worldNum)
     {
-         posX= xPos;
-        posY = yPos;
-        
+        xPos = xVar;
+        yPos = yVar;
+        numWorld = worldNum;
     }
+    
     
     /**
      * Act - do whatever the Duke wants to do. This method is called whenever
@@ -341,10 +342,20 @@ public class Duke extends Actor
     public void checkforSpikes() {
         if (isTouching(Spike.class)){
             
-              Level2 Level2= (Level2) getWorld();
+            if (numWorld ==2)
+            {
+            Level2 Level2= (Level2) getWorld();
             Level2.damage();
-            
+        }
+        if (numWorld ==3)
+            {
+            Level3 Level3 = (Level3) getWorld();
+            Level3.damage();
+        }
+        
+        
             numLives--;
+            
             setLocation(xPos, yPos);
             
             

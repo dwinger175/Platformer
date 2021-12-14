@@ -25,7 +25,7 @@ public class startScreen extends World
 
     public void act()
     {
-        playMusic();
+         playMusic();
 
     }
 
