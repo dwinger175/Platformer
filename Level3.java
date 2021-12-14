@@ -12,7 +12,7 @@ public class Level3 extends World
     private Duke Duke;
     int numLives = 3;
     
-    private healthBar healthbar;
+    private HealthBars healthbar;
     
     private GreenfootSound music = new GreenfootSound("Battle_of_Chiptune.mp3");    
     /**
@@ -92,7 +92,7 @@ public class Level3 extends World
         SmallGround smallGround26 = new SmallGround();
         addObject(smallGround26,753,179);
 
-        healthbar = new healthBar(3);
+        healthbar = new HealthBars(3);
         addObject(healthbar,70,31);
 
         Spike spike = new Spike();
@@ -118,12 +118,14 @@ public class Level3 extends World
         addObject(smolOff2,448,459);
         SmolOff smolOff3 = new SmolOff();
         addObject(smolOff3,553,417);
-        offground offground = new offground();
+        OffGround offground = new OffGround();
         addObject(offground,401,327);
         SmolOff smolOff4 = new SmolOff();
         addObject(smolOff4,546,240);
         EndFish endFish = new EndFish(3);
         addObject(endFish,751,133);
+        SmolOff smolOff5 = new SmolOff();
+        addObject(smolOff5,654,182);
     }
 
      public void damage()

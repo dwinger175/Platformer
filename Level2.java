@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level2 extends World
 {
-    private healthBar healthbar;
+    private HealthBars healthbar;
     private Duke Duke;
     /**
      * Constructor for objects of class Level2.
@@ -55,23 +55,23 @@ public class Level2 extends World
         addObject(spike3,632,582);
         Spike spike4 = new Spike();
         addObject(spike4,760,582);
-        offground offground = new offground();
-        addObject(offground,458,482);
-        offground offground2 = new offground();
-        addObject(offground2,684,430);
-        offground offground3 = new offground();
-        addObject(offground3,459,357);
-        offground offground4 = new offground();
-        addObject(offground4,660,266);
+        OffGround OffGround = new OffGround();
+        addObject(OffGround,458,482);
+        OffGround OffGround2 = new OffGround();
+        addObject(OffGround2,684,430);
+        OffGround OffGround3 = new OffGround();
+        addObject(OffGround3,459,357);
+        OffGround OffGround4 = new OffGround();
+        addObject(OffGround4,660,266);
         Duke duke = new Duke(70,509,2);
         addObject(duke,70,509);
-        offground offground5 = new offground();
-        addObject(offground5,432,212);
+        OffGround OffGround5 = new OffGround();
+        addObject(OffGround5,432,212);
         Floater floater = new Floater();
         addObject(floater,708,125);
         floater.setLocation(648,112);
 
-        healthbar = new healthBar(2);
+        healthbar = new HealthBars(2);
         addObject(healthbar,70,31);
 
         EndFish endFish = new EndFish(2);

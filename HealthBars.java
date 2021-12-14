@@ -1,21 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class healthBar here.
+ * Write a description of class HealthBars here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class healthBar extends Actor
+public class HealthBars extends Actor
 {
-   
-    private GreenfootImage heart3 = new GreenfootImage("Fullhearts.png");    
+   private GreenfootImage heart3 = new GreenfootImage("Fullhearts.png");    
     private GreenfootImage heart2 = new GreenfootImage("2hearts.png");  
     private GreenfootImage heart1 = new GreenfootImage("1hearts.png"); 
     int totalHealth = 3;
     
     int numWorld;
-    public healthBar(int worldNum){
+    public HealthBars(int worldNum){
         numWorld = worldNum;
         
     }
@@ -58,7 +57,7 @@ public class healthBar extends Actor
         }
         if (totalHealth == 0)
         {
-            Greenfoot.setWorld(new deathscreen());
+            Greenfoot.setWorld(new Deathscreen());
             stopMusic();
             
             
@@ -89,10 +88,4 @@ public class healthBar extends Actor
         }
         
     }
-    
-    
-    
-    
-    
-    
 }

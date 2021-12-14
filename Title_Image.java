@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class title_Screen here.
+ * Write a description of class Title_Image here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class title_Screen extends Actor
+public class Title_Image extends Actor
 {
     /**
-     * Act - do whatever the title_Screen wants to do. This method is called whenever
+     * Act - do whatever the Title_Image wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()

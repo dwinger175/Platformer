@@ -1,32 +1,24 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class deathscreen here.
+ * Write a description of class Deathscreen here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class deathscreen extends World
+public class Deathscreen extends World
 {
-    private GreenfootSound music = new GreenfootSound("Game_Over.mp3");   
+
     /**
-     * Constructor for objects of class deathscreen.
+     * Constructor for objects of class Deathscreen.
      * 
      */
-    public deathscreen()
+    public Deathscreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         prepare();
     }
-    
-    public void act()
-    {
-        playMusic();
-        save();
-    }
-    
-    
     
     /**
      * Prepare the world for the start of the program.
@@ -35,28 +27,6 @@ public class deathscreen extends World
     private void prepare()
     {
         GameOver gameOver = new GameOver();
-        addObject(gameOver,312,134);
+        addObject(gameOver,310,138);
     }
-    public void playMusic()
-    {
-        music.playLoop(); 
-        if (Greenfoot.isKeyDown("enter") == true)
-        {
-          music.stop();
-        }
-    }
-
-    public void save() 
-    {
-               if (Greenfoot.isKeyDown("enter") == true)
-        {
-          Greenfoot.setWorld(new MyWorld());
-        }
-        
-        
-        
-    }
-
-
 }
-
