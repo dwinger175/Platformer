@@ -27,7 +27,7 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        music.playLoop();
+        
         Platform platform = new Platform();
         addObject(platform,84,575);
         Platform platform2 = new Platform();
@@ -36,8 +36,8 @@ public class MyWorld extends World
         addObject(structure,173,517);
         Structure structure2 = new Structure();
         addObject(structure2,274,517);
-        OffGround OffGround = new OffGround();
-        addObject(OffGround,219,471);
+        OffGrounds OffGrounds = new OffGrounds();
+        addObject(OffGrounds,219,471);
         Structure structure3 = new Structure();
         addObject(structure3,388,517);
         Structure structure4 = new Structure();
@@ -46,8 +46,8 @@ public class MyWorld extends World
         addObject(structure5,394,452);
         Structure structure6 = new Structure();
         addObject(structure6,493,454);
-        OffGround OffGround2 = new OffGround();
-        addObject(OffGround2,434,414);
+        OffGrounds OffGrounds2 = new OffGrounds();
+        addObject(OffGrounds2,434,414);
         structure5.setLocation(393,466);
         Structure structure7 = new Structure();
         addObject(structure7,574,517);
@@ -62,8 +62,8 @@ public class MyWorld extends World
         addObject(structure11,672,452);
         Structure structure12 = new Structure();
         addObject(structure12,672,406);
-        OffGround OffGround3 = new OffGround();
-        addObject(OffGround3,623,372);
+        OffGrounds OffGrounds3 = new OffGrounds();
+        addObject(OffGrounds3,623,372);
         Structure structure13 = new Structure();
         addObject(structure13,753,518);
         Structure structure14 = new Structure();
@@ -74,8 +74,8 @@ public class MyWorld extends World
         addObject(structure16,753,387);
         Structure structure17 = new Structure();
         addObject(structure17,753,342);
-        OffGround OffGround4 = new OffGround();
-        addObject(OffGround4,793,320);
+        OffGrounds OffGrounds4 = new OffGrounds();
+        addObject(OffGrounds4,793,320);
         Structure structure18 = new Structure();
         addObject(structure18,572,323);
         Structure structure19 = new Structure();
@@ -87,8 +87,8 @@ public class MyWorld extends World
         structure19.setLocation(572,266);
         Structure structure22 = new Structure();
         addObject(structure22,572,266);
-        OffGround OffGround5 = new OffGround();
-        addObject(OffGround5,618,231);
+        OffGrounds OffGrounds5 = new OffGrounds();
+        addObject(OffGrounds5,618,231);
         Structure structure23 = new Structure();
         addObject(structure23,490,367);
         Structure structure24 = new Structure();
@@ -105,8 +105,8 @@ public class MyWorld extends World
         addObject(structure29,388,218);
         Structure structure30 = new Structure();
         addObject(structure30,490,212);
-        OffGround OffGround6 = new OffGround();
-        addObject(OffGround6,431,171);
+        OffGrounds OffGrounds6 = new OffGrounds();
+        addObject(OffGrounds6,431,171);
         Duke duke = new Duke(34,526,1);
         addObject(duke,34,526);
         Floater floater = new Floater();
@@ -117,17 +117,31 @@ public class MyWorld extends World
         EndFish endFish = new EndFish(1);
         addObject(endFish,218,130);
     }
-     public void act()
+     
+    /**
+     * Activates when start is pressed
+     * 
+     */
+    public void act()
     {
         playMusic();
 
     }
-     public void playMusic()
+    
+    /**
+     * 
+     * Plays Music
+     */
+    public void playMusic()
     {
         music.playLoop(); 
       
     }
     
+    /**
+     * 
+     * Stops Music
+     */
     public void stop()
     {
         music.stop();

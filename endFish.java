@@ -24,7 +24,10 @@ public class EndFish extends Actor
         nextWorld();
     }
     
-    
+      /**
+     * 
+     * Changes world if Duke is touching the Fish
+     */
     public void nextWorld(){
         
      if(isTouching (Duke.class))
@@ -40,6 +43,18 @@ public class EndFish extends Actor
              Greenfoot.setWorld(new Level3());
               Level2 Level2= (Level2) getWorld();
              Level2.stop();
+         }
+         else if(numWorld == 3)
+         {
+             Greenfoot.setWorld(new Level4());
+              Level3 Level3 = (Level3) getWorld();
+             Level3.stop();
+         }
+         else if(numWorld == 4)
+         {
+             Greenfoot.setWorld(new Level5());
+              Level4 Level4 = (Level4) getWorld();
+             Level4.stop();
          }
      }
         

@@ -10,7 +10,7 @@ public class Level3 extends World
 {
 
     private Duke Duke;
-    int numLives = 3;
+  
     
     private HealthBars healthbar;
     
@@ -118,7 +118,7 @@ public class Level3 extends World
         addObject(smolOff2,448,459);
         SmolOff smolOff3 = new SmolOff();
         addObject(smolOff3,553,417);
-        OffGround offground = new OffGround();
+        OffGrounds offground = new OffGrounds();
         addObject(offground,401,327);
         SmolOff smolOff4 = new SmolOff();
         addObject(smolOff4,546,240);
@@ -128,23 +128,40 @@ public class Level3 extends World
         addObject(smolOff5,654,182);
     }
 
+    /**
+     * 
+     * Calls Healthbar
+     */
      public void damage()
     {
-        numLives--;
+        
         healthbar.checkDamage();
             }    
     
+    /**
+     * 
+     * Activates when started
+     */
     public void act()
     {
         playMusic();
 
     }
-     public void playMusic()
+     
+    /**
+     * 
+     * Plays Music
+     */
+    public void playMusic()
     {
         music.playLoop(); 
       
     }
     
+    /**
+     * stops Music
+     * 
+     */
     public void stop()
     {
         music.stop();

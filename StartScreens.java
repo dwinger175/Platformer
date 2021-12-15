@@ -17,10 +17,14 @@ public class StartScreens extends World
     public StartScreens()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(800, 600, 1); 
         prepare();
     }
     
+    /**
+     * Activates when started
+     * 
+     */
     public void act()
     {
          playMusic();
@@ -34,12 +38,16 @@ public class StartScreens extends World
     private void prepare()
     {
 
-        Title_Image title_Image = new Title_Image();
-        addObject(title_Image,258,169);
         StartImage startImage = new StartImage();
-        addObject(startImage,285,340);
+        addObject(startImage,397,494);
+        Title_Image title_Image = new Title_Image();
+        addObject(title_Image,382,259);
     }
 
+    /**
+     * Plays music until enter is pressed
+     * 
+     */
     public void playMusic()
     {
         music.playLoop(); 

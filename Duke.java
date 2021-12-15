@@ -39,14 +39,18 @@ public class Duke extends Actor
     int xPos;
     int yPos;    
     int numWorld;
+
+    /**
+     * Constructor for objects of class Duke
+     * 
+     */
     public Duke(int xVar, int yVar, int worldNum)
     {
         xPos = xVar;
         yPos = yVar;
         numWorld = worldNum;
     }
-    
-    
+
     /**
      * Act - do whatever the Duke wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -61,6 +65,11 @@ public class Duke extends Actor
         animationCounter++;
     }
 
+    /**
+     * 
+     * Checks if the left, right or space button is being pressed and if jumping is true.
+     * Sets direction and movement
+     */
     public void checkKeys()
     {
         if (Greenfoot.isKeyDown("right"))
@@ -103,6 +112,10 @@ public class Duke extends Actor
         } 
     }
 
+    /**
+     * Checks if there will be a collision ahead of it,  if not move rigt and start animation
+     * 
+     */
     public void moveRight()
     {
         if(collisionAt(speed,-1)) return;
@@ -114,6 +127,10 @@ public class Duke extends Actor
         }
     }
 
+    /**
+     * Animates to frames while moving right
+     * 
+     */
     public void animateRight()
     {
         switch (frame)
@@ -143,6 +160,10 @@ public class Duke extends Actor
         frame++;
     }
 
+    /**
+     * Checks if there is a collision in front. If not, change position to move left.
+     * 
+     */
     public void moveLeft()
     {
         if(collisionAt(-speed,-1)) return;
@@ -155,6 +176,10 @@ public class Duke extends Actor
         }
     }
 
+    /**
+     * Changes animation frames that are facing left.
+     * 
+     */
     public void animateLeft()
     {
         switch (frame)
@@ -184,7 +209,10 @@ public class Duke extends Actor
         frame++;
     }
 
-    
+    /**
+     * If there is  not a platform under, move down at vspeed plus acceleration
+     * 
+     */
     public void fall()
     {
 
@@ -198,6 +226,11 @@ public class Duke extends Actor
         }
     }
 
+    /**
+     * Gets the width and height of sprite. Checks if a platform is under. If no platform, then
+     * Jumping, if true on ground.
+     * 
+     */
     public boolean onGround()
     {
         double spriteHeight = getImage().getHeight();
@@ -206,7 +239,6 @@ public class Duke extends Actor
 
         Actor  ground = getOneObjectAtOffset(getImage().getWidth() + 1 / 5, getImage().getHeight() / 2 , Platform.class);
 
-       
         if (direction == 1)
         {
             ground = getOneObjectAtOffset(-20, getImage().getHeight() / 2 , Platform.class);
@@ -229,6 +261,11 @@ public class Duke extends Actor
         }
 
     }
+
+    /**
+     * 
+     * Will check if platform under at a length of vspeed. If platform detected, lower speed.
+     */
     public void detectPlatform()
     {
         for (int i = 0; i < vSpeed; i++ )
@@ -243,6 +280,10 @@ public class Duke extends Actor
 
     }
 
+    /**
+     * Moves player to ground if ground is detected and corrects players direction.
+     * 
+     */
     public void moveToGround (Actor ground)
     {
         int groundHeight = ground.getImage().getHeight();
@@ -261,7 +302,11 @@ public class Duke extends Actor
         }
 
     }
-    
+
+    /**
+     * Checks if player should be falling
+     * 
+     */
     public void checkFall()
     {
         if(onGround())
@@ -276,6 +321,10 @@ public class Duke extends Actor
         }
     }
 
+    /**
+     * Moves player upward depending on jump strength.
+     * 
+     */
     public void jump()
     {
         if (jtime == 3 )
@@ -294,7 +343,7 @@ public class Duke extends Actor
 
     /**
      * 
-     * Checks if there is a platform above you
+     * Puts point on top of sprite, if a ceiling is there, decrease speed and Activate bop head
      *  Code basics from awesomeinmyworld on greenfoot
      * 
      */
@@ -319,7 +368,7 @@ public class Duke extends Actor
     }
 
     /**
-     * Stops jump if there is a platform above you.
+     * Stops jump if there is a platform above you. Corrects where player should be
      * 
      *  Code basics from awesomeinmyworld on greenfoot
      * 
@@ -331,35 +380,42 @@ public class Duke extends Actor
         setLocation(getX(), newY);
     }
 
+    /**
+     * 
+     * Checks if there is an object at offset of player.
+     */
     public boolean collisionAt (int x ,int y)
     {
         return getOneObjectAtOffset(x,y, Platform.class) != null;
 
     }
 
-  
-
+    /**
+     * 
+     * Checks if spikes are being touched. If so, Activate that worlds damage and set position.
+     */
     public void checkforSpikes() {
         if (isTouching(Spike.class)){
-            
+
             if (numWorld ==2)
             {
-            Level2 Level2= (Level2) getWorld();
-            Level2.damage();
-        }
-        if (numWorld ==3)
+                Level2 Level2= (Level2) getWorld();
+                Level2.damage();
+            }
+            if (numWorld ==3)
             {
-            Level3 Level3 = (Level3) getWorld();
-            Level3.damage();
-        }
-        
-        
+                Level3 Level3 = (Level3) getWorld();
+                Level3.damage();
+            }
+            if (numWorld ==4)
+            {
+                Level4 Level4 = (Level4) getWorld();
+                Level4.damage();
+            }
+
             numLives--;
-            
             setLocation(xPos, yPos);
-            
-            
-            
+
+        }
     }
-}
 }

@@ -28,13 +28,20 @@ public class HealthBars extends Actor
     {
         
     }
-    
+      /**
+     * Decrease total health, activate update.
+     * 
+     */
     public void checkDamage()
     {
         totalHealth--;
         update();
         
     }
+      /**
+     * Change heart Image. If at zero hearts, Change world to Deathscreen
+     * 
+     */
     public void update()
     {
         if (totalHealth == 1)
@@ -57,9 +64,16 @@ public class HealthBars extends Actor
         }
         if (totalHealth == 0)
         {
-            Greenfoot.setWorld(new Deathscreen());
-            stopMusic();
-            
+            if (numWorld == 1 ||numWorld == 2 ||numWorld == 3 )
+            {
+                Greenfoot.setWorld(new Deathscreen());
+                stopMusic();
+            }
+            if (numWorld == 4 ||numWorld == 5 ||numWorld == 6 )
+            {
+                Greenfoot.setWorld(new DeathWorld2());
+                stopMusic();
+            }
             
         }
         
@@ -84,6 +98,12 @@ public class HealthBars extends Actor
         {
             Level3 Level3 = (Level3) getWorld();
              Level3.stop();            
+            
+        }
+        else if (numWorld == 4)
+        {
+            Level4 Level4 = (Level4) getWorld();
+             Level4.stop();            
             
         }
         

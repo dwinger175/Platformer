@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class OffGround here.
+ * Write a description of class OffGrounds here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class OffGround extends Actor
+public class OffGrounds extends Platform
 {
     /**
-     * Act - do whatever the OffGround wants to do. This method is called whenever
+     * Act - do whatever the OffGrounds wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()

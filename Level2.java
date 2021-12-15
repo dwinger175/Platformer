@@ -20,7 +20,7 @@ public class Level2 extends World
         super(800, 600, 1);
         prepare();
     }
-    int numLives = 3;
+    
     private GreenfootSound music = new GreenfootSound("Battle_of_Chiptune.mp3");        
    
     public void act()
@@ -28,6 +28,11 @@ public class Level2 extends World
         playMusic();
 
     }
+    
+    /**
+     * PLays Music when the level starts
+     * 
+     */
      public void playMusic()
     {
         music.playLoop(); 
@@ -35,12 +40,12 @@ public class Level2 extends World
     }
     
     /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
+     * Creates items when world is created
+     * 
      */
     private void prepare()
     {
-        music.playLoop();
+        
 
         Platform platform = new Platform();
         addObject(platform,15,577);
@@ -55,18 +60,7 @@ public class Level2 extends World
         addObject(spike3,632,582);
         Spike spike4 = new Spike();
         addObject(spike4,760,582);
-        OffGround OffGround = new OffGround();
-        addObject(OffGround,458,482);
-        OffGround OffGround2 = new OffGround();
-        addObject(OffGround2,684,430);
-        OffGround OffGround3 = new OffGround();
-        addObject(OffGround3,459,357);
-        OffGround OffGround4 = new OffGround();
-        addObject(OffGround4,660,266);
-        Duke duke = new Duke(70,509,2);
-        addObject(duke,70,509);
-        OffGround OffGround5 = new OffGround();
-        addObject(OffGround5,432,212);
+
         Floater floater = new Floater();
         addObject(floater,708,125);
         floater.setLocation(648,112);
@@ -76,14 +70,42 @@ public class Level2 extends World
 
         EndFish endFish = new EndFish(2);
         addObject(endFish,651,66);
-    }
+        Duke duke = new Duke(26, 508, 2);
+        addObject(duke,26,508);
+        OffGrounds offGrounds = new OffGrounds();
+        addObject(offGrounds,418,505);
+        SmolOff smolOff = new SmolOff();
+        addObject(smolOff,583,478);
+        SmolOff smolOff2 = new SmolOff();
+        addObject(smolOff2,698,442);
 
+        SmolOff smolOff3 = new SmolOff();
+        addObject(smolOff3,773,369);
+        smolOff3.setLocation(778,367);
+        SmolOff smolOff4 = new SmolOff();
+        addObject(smolOff4,674,310);
+        OffGrounds offGrounds2 = new OffGrounds();
+        addObject(offGrounds2,508,259);
+        OffGrounds offGrounds3 = new OffGrounds();
+        addObject(offGrounds3,309,211);
+        SmolOff smolOff5 = new SmolOff();
+        addObject(smolOff5,475,145);
+    }
+    
+    /**
+     * Activates healthbar damage
+     * 
+     */
     public void damage()
     {
-        numLives--;
-        healthbar.checkDamage();
+              healthbar.checkDamage();
             }    
-    public void stop()
+    
+            
+    /**
+     * Stops music when called
+     * 
+     */public void stop()
     {
         music.stop();
             

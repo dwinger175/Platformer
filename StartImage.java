@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartImage extends Actor
 {
-    private int counter;
+    
 
     
     /**
@@ -21,12 +21,15 @@ public class StartImage extends Actor
         startLevel();
     }
 
-   
+     /**
+     * 
+     * If player presses enter, Change to MyWorld
+     */
     public void startLevel()
     {
         if (Greenfoot.isKeyDown("enter") == true)
         {
-            if (++counter == 5) Greenfoot.setWorld(new MyWorld());
+            Greenfoot.setWorld(new MyWorld());
 
             
         }
