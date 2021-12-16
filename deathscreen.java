@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Deathscreen extends World
 {
-
+    private GreenfootSound music = new GreenfootSound("Game_Over.mp3");    
     /**
      * Constructor for objects of class Deathscreen.
      * 
@@ -29,5 +29,34 @@ public class Deathscreen extends World
 
         GameOver gameOver = new GameOver(1);
         addObject(gameOver,414,205);
+    }
+     /**
+     * 
+     * Activates when started
+     */
+    public void act()
+    {
+        playMusic();
+
+    }
+  
+    /**
+     * 
+     * Plays Music
+     */
+    public void playMusic()
+    {
+        music.playLoop(); 
+
+    }
+
+    /**
+     * stops Music
+     * 
+     */
+    public void stop()
+    {
+        music.stop();
+
     }
 }

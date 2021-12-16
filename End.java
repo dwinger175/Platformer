@@ -1,33 +1,32 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class DeathWorld2 here.
+ * Write a description of class End here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DeathWorld2 extends World
+public class End extends World
 {
-    private GreenfootSound music = new GreenfootSound("Game_Over.mp3");    
+     private GreenfootSound music = new GreenfootSound("Restart.mp3");    
     /**
-     * Constructor for objects of class DeathWorld2.
+     * Constructor for objects of class End.
      * 
      */
-    public DeathWorld2()
+    public End()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
         prepare();
     }
     
-    
      /**
-     * 
      * Activates when started
+     * 
      */
     public void act()
     {
-        playMusic();
+         playMusic();
 
     }
     /**
@@ -36,28 +35,23 @@ public class DeathWorld2 extends World
      */
     private void prepare()
     {
-
-        GameOver gameOver = new GameOver(2);
-        addObject(gameOver,413,283);
+        EndImage endImage = new EndImage();
+        addObject(endImage,365,61);
+        Credits credits = new Credits();
+        addObject(credits,417,507);
+        Title_Image title_Image = new Title_Image();
+        addObject(title_Image,356,230);
     }
-    
-    /**
+     /**
+     * Plays music until enter is pressed
      * 
-     * Plays Music
      */
     public void playMusic()
     {
         music.playLoop(); 
-
-    }
-
-    /**
-     * stops Music
-     * 
-     */
-    public void stop()
-    {
-        music.stop();
-
+        if (Greenfoot.isKeyDown("enter") == true)
+        {
+           music.stop();
+        }
     }
 }

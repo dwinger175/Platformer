@@ -57,8 +57,8 @@ public class Duke extends Actor
      */
     public void act() 
     {
-        checkforSpikes();
         checkKeys();
+        checkforSpikes();
         fall();
         checkFall();
         platformAbove();
@@ -220,7 +220,7 @@ public class Duke extends Actor
         setLocation (getX(), getY() + vSpeed);
         jumping = true;
 
-        if (vSpeed <=9)
+        if (vSpeed <=6)
         {
             vSpeed = vSpeed += accel;
         }
@@ -411,6 +411,11 @@ public class Duke extends Actor
             {
                 Level4 Level4 = (Level4) getWorld();
                 Level4.damage();
+            }
+            if (numWorld ==5)
+            {
+                Level5 Level5 = (Level5) getWorld();
+                Level5.damage();
             }
 
             numLives--;

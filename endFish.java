@@ -56,6 +56,18 @@ public class EndFish extends Actor
               Level4 Level4 = (Level4) getWorld();
              Level4.stop();
          }
+         else if(numWorld == 5)
+         {
+             Greenfoot.setWorld(new Level6());
+              Level5 Level5 = (Level5) getWorld();
+             Level5.stop();
+         }
+         else if(numWorld == 6)
+         {
+             Greenfoot.setWorld(new End());
+              Level6 Level6 = (Level6) getWorld();
+             Level6.stop();
+         }
      }
         
         

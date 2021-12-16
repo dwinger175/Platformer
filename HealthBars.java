@@ -106,6 +106,12 @@ public class HealthBars extends Actor
              Level4.stop();            
             
         }
+         else if (numWorld == 5)
+        {
+            Level5 Level5 = (Level5) getWorld();
+             Level5.stop();            
+            
+        }
         
     }
 }

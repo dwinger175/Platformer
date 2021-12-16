@@ -38,7 +38,8 @@ public class GameOver extends Actor
         {
             Greenfoot.setWorld(new MyWorld());
             
-            
+            Deathscreen Deathscreen= (Deathscreen) getWorld();
+             Deathscreen.stop();
             
         }
     }
@@ -47,7 +48,8 @@ public class GameOver extends Actor
         if (Greenfoot.isKeyDown("enter") == true)
         {
             Greenfoot.setWorld(new Level4());
-            
+            DeathWorld2 Deathscreen= (DeathWorld2) getWorld();
+             Deathscreen.stop();
             
             
         }
