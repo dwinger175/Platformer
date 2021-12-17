@@ -29,6 +29,7 @@ public class End extends World
          playMusic();
 
     }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -41,7 +42,10 @@ public class End extends World
         addObject(credits,417,507);
         Title_Image title_Image = new Title_Image();
         addObject(title_Image,356,230);
+        BackButton backButton = new BackButton();
+        addObject(backButton,64,107);
     }
+
      /**
      * Plays music until enter is pressed
      * 
@@ -49,7 +53,7 @@ public class End extends World
     public void playMusic()
     {
         music.playLoop(); 
-        if (Greenfoot.isKeyDown("enter") == true)
+        if (Greenfoot.isKeyDown("space") == true)
         {
            music.stop();
         }
